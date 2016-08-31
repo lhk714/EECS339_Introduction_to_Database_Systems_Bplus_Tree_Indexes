@@ -1,0 +1,24 @@
+EECS 339 Introduction to Database System
+Laboratory 3 Write-up
+Haikun Liu (hlg483)
+
+The lab 3 exercise took me about 5 days to finish. The API remains as the same, and no additional classes are added. I follow the instruction and suggestion provided in the Canvas to design the solutions. The extra credit part is not finished.
+
+findLeafPage(): This recursive function is to find the leaf page in a B+ tree. From the root node, the search is conducted firstly in the left branch, then to the right branch. The search ends when the leaf page is found or no leaf pages meet the requirements.  
+
+splitLeafPage(): In this function, reverseIterator() is used to read the tuples from the right-hand-side in the page to split. Follow the instructions provided, this function is implemented straightforwardly.
+
+splitInternalPage(): In this function, can also using the function reverseIterator() to read entries from the right-hand-side easily. A BTreeEntry variable is used to store the intermediate result of the middle entry, which is considered as the parent key from the two spliced pages.
+
+stealFromLeafPage(): It is important to keep track of the numbers of tuples in the page and its sibling page in order to distribute the tuples evenly.
+
+stealFromLeftInternalPage(): This function is to  move entries from the left sibling page to the current page.
+
+stealFromRightInternalPage(): This function is to  move entries from the right sibling page to the current page.
+
+mergeLeafPages(): If there is a leaf page at the right-hand-side of the right page, need to link up the current merged page and its right-hand-side page.
+
+mergeInternalPages(): The key part of this function is to find the correct entry to pull down for merge.
+
+
+Difficulty: Push up and pull down the entries correctly, and change the pointers accordingly.
